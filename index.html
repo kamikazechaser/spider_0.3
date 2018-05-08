@@ -1,0 +1,56 @@
+<!--
+ * TypeSpeed
+ * 
+ * Mohammed Sohail <sohailsameja@gmail.com>
+ * Spider Inductions 2018
+ *
+-->
+
+<html ng-app="TypeSpeed">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>TypeSpeed</title>
+</head>
+
+<body>
+    <div class="container" ng-controller="mainController">
+        <br><br>
+        <h1 style="text-align:center">TypeSpeed</h1>
+
+        <div class="row">
+            <div class="column">
+                <label for="sampleText">Sample Text</label>
+                <textarea style="color:black" disabled ng-model="sampleText" id=sampleText></textarea>
+            </div>
+            <div class="column">
+                <label for="userInputText">Type Here</label>
+                <textarea ng-change="initiateProcess()" ng-keydown="preventInput($event)" ng-model="userInputText" ng-style="bgCol" ng-disabled="completeStatus" ng-paste="$event.preventDefault();" id="userInputText"></textarea>
+                <p style="color:purple" ng-bind="status"></p>
+            </div>
+        </div>
+
+        <h3 ng-cloak ng-show="completeStatus" style="text-align:center">You took <b>{{timeTaken}} seconds</b>. Your typing speed is <b>{{typingSpeed}}</b></h3>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+<br><br><br>
+
+<footer class="footer">
+    <section class="container">
+        <p>
+            Made with ♥ by Mohamed Sohail (2018)
+        </p>
+    </section>
+</footer>
+
+</html>
